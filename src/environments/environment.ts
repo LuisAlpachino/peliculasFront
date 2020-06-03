@@ -6,6 +6,11 @@ export const environment = {
   production: false
 };
 
+export const ApiUrl="http://localhost:8080/peliculas/webresources/peliculas/";
+export const contentType="Content-Type";
+export const AppJSON="application/json";
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
