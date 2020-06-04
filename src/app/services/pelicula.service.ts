@@ -29,9 +29,13 @@ export class PeliculaService {
       });
    }
 
-    update(pelicula: Pelicula){
+    update(pelicula: any){
      return this._http.put(ApiUrl+this.pathUpdate+pelicula.id,{
-       pelicula
+      descripcion: pelicula.descripcion,
+      fkcompany: pelicula.fkcompany,
+      longitud: pelicula.longitud,
+      titulo: pelicula.titulo,
+      lanzamiento: pelicula.lanzamiento
      },{
        headers:this.headers
      });
@@ -43,15 +47,16 @@ export class PeliculaService {
      });
    }
 
-   create(pelicula: ResponsePeliculas){
+   create(pelicula: any){
      return this._http.post(ApiUrl+this.pathCreate,{
-       pelicula
+      descripcion: pelicula.descripcion,
+      fkcompany: pelicula.fkcompany,
+      longitud: pelicula.longitud,
+      titulo: pelicula.titulo,
+      lanzamiento: pelicula.lanzamiento
      },{
        headers:this.headers
      });
    }
-  /*  private executeQuery<T>(query: string){
-     query = ApiUrl + query;
-     return this._http.get
-   } */
+
 }

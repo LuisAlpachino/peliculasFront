@@ -14,11 +14,10 @@
     </ion-header>
     <!-- Lista de peliculas -->
     <ion-label style="margin-left: 3em ; margin-top: 2em; ">
-        <ion-label>
-            <ion-icon name="duplicate-outline" (click)="crear(data)"></ion-icon>
+        <ion-label (click)="crear()" style="cursor: pointer;">
+            <ion-icon name="duplicate-outline"></ion-icon>
             Agregar Pelicula
         </ion-label>
-
     </ion-label>
     <ion-list>
         <ion-item color="primary" class="--color-hover">

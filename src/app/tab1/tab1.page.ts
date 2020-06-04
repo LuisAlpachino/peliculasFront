@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from '../services/pelicula.service';
 import {  Pelicula } from '../interfaces/intefaces';
-import { AlertController, ToastController  } from '@ionic/angular';
+import { AlertController, ToastController, ModalController  } from '@ionic/angular';
+import { Tab2Page } from '../tab2/tab2.page';
+import { Tab3Page } from '../tab3/tab3.page';
 
 @Component({
   selector: 'app-tab1',
@@ -14,7 +16,8 @@ export class Tab1Page implements OnInit {
 
   constructor(private _pelicula: PeliculaService,
               public alertController: AlertController,
-              public toastController: ToastController) {
+              public toastController: ToastController,
+              public modalController: ModalController) {
     this.peliculas = [];
   }
 
@@ -84,6 +87,38 @@ export class Tab1Page implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  async crear() {
+    const modal = await this.modalController.create({
+      component: Tab2Page,
+      cssClass: 'my-custom-class',
+      componentProps: {
+
+      }
+    });
+    return await modal.present();
+  }
+
+
+  async editar(pelicula: Pelicula) {
+    const modal = await this.modalController.create({
+      component: Tab3Page,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        pelicula: pelicula
+      }
+    });
+    return await modal.present();
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
   }
 
 }
