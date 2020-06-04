@@ -7,6 +7,8 @@ export const environment = {
 };
 
 export const ApiUrl="http://localhost:8080/peliculas/webresources/peliculas/";
+//export const ApiUrl="http://localhost:8080/carros/webresources/carros/";
+
 export const contentType="Content-Type";
 export const AppJSON="application/json";
 

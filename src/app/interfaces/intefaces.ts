@@ -1,10 +1,16 @@
 import {Provider} from '@angular/core';
 
+
 export interface ResponsePeliculas {
-  id: number;
-  titulo: string;
-  lanzamiento: string;
-  longitud: number;
+  pelicula: Pelicula[];
+}
+
+export interface Pelicula {
   descripcion: string;
   fkcompany: number;
+  longitud: number;
+  titulo: string;
+  lanzamiento: string;
+  id: number;
 }
+

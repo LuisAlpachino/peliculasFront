@@ -1,17 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Listado de peliculas
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Listado de peliculas</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <!-- Lista de peliculas -->
+    <ion-label style="margin-left: 3em ; margin-top: 2em; ">
+        <ion-label>
+            <ion-icon name="duplicate-outline" (click)="crear(data)"></ion-icon>
+            Agregar Pelicula
+        </ion-label>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    </ion-label>
+    <ion-list>
+        <ion-item color="primary" class="--color-hover">
+            <ion-label>id</ion-label>
+            <ion-label>Titulo</ion-label>
+            <!--   <ion-label>Descripción</ion-label> -->
+            <ion-label>Año lanzamiento</ion-label>
+            <ion-label>duración</ion-label>
+            <ion-label>Acciones</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item *ngFor="let data of peliculas">
+            <ion-label>{{data.id}}</ion-label>
+            <ion-label>{{data.titulo}}</ion-label>
+            <!--             <ion-label>{{data.descripcion}}</ion-label> -->
+            <ion-label>{{data.lanzamiento}}</ion-label>
+            <ion-label>{{data.longitud}}</ion-label>
+            <ion-label>
+                <ion-icon name="create-outline" (click)="editar(data)"></ion-icon>
+                <ion-icon name="trash-outline" (click)="delete(data)"></ion-icon>
+            </ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiUrl, contentType, AppJSON } from 'src/environments/environment';
-import { ResponsePeliculas } from '../interfaces/intefaces';
+import { ResponsePeliculas, Pelicula } from '../interfaces/intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -29,13 +29,13 @@ export class PeliculaService {
       });
    }
 
-   update(pelicula: ResponsePeliculas){
+    update(pelicula: Pelicula){
      return this._http.put(ApiUrl+this.pathUpdate+pelicula.id,{
        pelicula
      },{
        headers:this.headers
      });
-   }
+   } 
 
    delete(id: number){
      return this._http.delete(ApiUrl+this.pathDelete+id,{
